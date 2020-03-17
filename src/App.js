@@ -31,8 +31,8 @@ function App(props) {
   return (
     <div>
       <ProvideAuth>
-      <Header></Header>
-      {/* {
+        <Header></Header>
+        {/* {
             user
               ? <p>Hello, {user.displayName}</p>
               : <p>Please sign in.</p>
@@ -43,31 +43,31 @@ function App(props) {
               ? <button onClick={signOut}>Sign out</button>
               : <button onClick={signInWithGoogle}>Sign in with Google</button>
           } */}
-      <Router>
-        <Switch>
-          <Route path="/shop">
-            <Shop></Shop>
-          </Route>
-          <Route path="/review">
-            <Review></Review>
-          </Route>
-          <Route path="/inventory">
-            <Inventory></Inventory>
-          </Route>
-          <Route exact path="/">
-            <Shop></Shop>
-          </Route>
-          <Route path="/product/:productKey">
-            <ProductDetail></ProductDetail>
-          </Route>
-          <Route path="/login">
-            <Login></Login>
-          </Route>
-          <Route path="*">
-            <NotFound></NotFound>
-          </Route>
-        </Switch>
-      </Router>
+        <Router>
+          <Switch>
+            <Route path="/shop">
+              <Shop></Shop>
+            </Route>
+            <Route path="/review">
+              <Review></Review>
+            </Route>
+            <Route path="/inventory">
+              <Inventory></Inventory>
+            </Route>
+            <Route exact path="/">
+              <Shop></Shop>
+            </Route>
+            <Route path="/product/:productKey">
+              <ProductDetail></ProductDetail>
+            </Route>
+            <Route path="/login">
+              <Login></Login>
+            </Route>
+            <Route path="*">
+              <NotFound></NotFound>
+            </Route>
+          </Switch>
+        </Router>
       </ProvideAuth>
     </div>
   );

@@ -21,33 +21,36 @@ const Review = () => {
         removeFromDatabaseCart(productKey);
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         //cart
         const savedCart = getDatabaseCart();
+        console.log(savedCart);
         const productKeys = Object.keys(savedCart);
 
-        const cartProducts =  productKeys.map( key => {
-            const product = fakeData.find( pd => pd.key === key);
+        const cartProducts = productKeys.map(key => {
+            const product = fakeData.find(pd => pd.key === key);
             product.quantity = savedCart[key];
+            console.log(savedCart[key]);
             return product;
         });
+        console.log(cartProducts);
         setCart(cartProducts);
     }, []);
 
     let thankyou;
-    if(orderPlaced){
-        thankyou = <img src={happyImage} alt=""/>
-    } 
+    if (orderPlaced) {
+        thankyou = <img src={happyImage} alt="" />
+    }
     return (
         <div className="twin-container">
             <div className="product-container">
                 {
-                    cart.map(pd => <ReviewItem 
+                    cart.map(pd => <ReviewItem
                         key={pd.key}
-                        removeProduct = {removeProduct}
+                        removeProduct={removeProduct}
                         product={pd}></ReviewItem>)
                 }
-                { thankyou }
+                {thankyou}
             </div>
             <div className="cart-container">
                 <Cart cart={cart}>
